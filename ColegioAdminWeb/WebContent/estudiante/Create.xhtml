@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EstudianteCreateDlg" widgetVar="EstudianteCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateEstudianteTitle}">
+            <h:form id="EstudianteCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{estudianteController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateEstudianteLabel_idEstudiante}" for="idEstudiante" />
+                        <p:inputText id="idEstudiante" value="#{estudianteController.selected.idEstudiante}" title="#{bundle.CreateEstudianteTitle_idEstudiante}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_idEstudiante}"/>
+                        <p:outputLabel value="#{bundle.CreateEstudianteLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{estudianteController.selected.nombre}" title="#{bundle.CreateEstudianteTitle_nombre}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreateEstudianteLabel_apellido}" for="apellido" />
+                        <p:inputText id="apellido" value="#{estudianteController.selected.apellido}" title="#{bundle.CreateEstudianteTitle_apellido}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_apellido}"/>
+                        <p:outputLabel value="#{bundle.CreateEstudianteLabel_numeroIdentificacion}" for="numeroIdentificacion" />
+                        <p:inputText id="numeroIdentificacion" value="#{estudianteController.selected.numeroIdentificacion}" title="#{bundle.CreateEstudianteTitle_numeroIdentificacion}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_numeroIdentificacion}"/>
+                        <p:outputLabel value="#{bundle.CreateEstudianteLabel_acudienteidAcudiente}" for="acudienteidAcudiente" />
+                        <p:selectOneMenu id="acudienteidAcudiente" value="#{estudianteController.selected.acudienteidAcudiente}" required="true" requiredMessage="#{bundle.EditEstudianteRequiredMessage_acudienteidAcudiente}">
+                            <f:selectItems value="#{acudienteController.itemsAvailableSelectOne}"
+                                           var="acudienteidAcudienteItem"
+                                           itemValue="#{acudienteidAcudienteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEstudianteLabel_cursoidCurso}" for="cursoidCurso" />
+                        <p:selectOneMenu id="cursoidCurso" value="#{estudianteController.selected.cursoidCurso}" required="true" requiredMessage="#{bundle.EditEstudianteRequiredMessage_cursoidCurso}">
+                            <f:selectItems value="#{cursoController.itemsAvailableSelectOne}"
+                                           var="cursoidCursoItem"
+                                           itemValue="#{cursoidCursoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{estudianteController.create}" value="#{bundle.Save}" update="display,:EstudianteListForm:datalist,:growl" oncomplete="handleSubmit(args,'EstudianteCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EstudianteCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

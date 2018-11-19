@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CitacionViewDlg" widgetVar="CitacionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCitacionTitle}">
+            <h:form id="CitacionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{citacionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCitacionLabel_idCitacion}"/>
+                        <h:outputText value="#{citacionController.selected.idCitacion}" title="#{bundle.ViewCitacionTitle_idCitacion}"/>
+                        <h:outputText value="#{bundle.ViewCitacionLabel_fecha}"/>
+                        <h:outputText value="#{citacionController.selected.fecha}" title="#{bundle.ViewCitacionTitle_fecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCitacionLabel_detalles}"/>
+                        <h:outputText value="#{citacionController.selected.detalles}" title="#{bundle.ViewCitacionTitle_detalles}"/>
+                        <h:outputText value="#{bundle.ViewCitacionLabel_numeroCitacion}"/>
+                        <h:outputText value="#{citacionController.selected.numeroCitacion}" title="#{bundle.ViewCitacionTitle_numeroCitacion}"/>
+                        <h:outputText value="#{bundle.ViewCitacionLabel_estudianteidEstudiante}"/>
+                        <h:outputText value="#{citacionController.selected.estudianteidEstudiante}" title="#{bundle.ViewCitacionTitle_estudianteidEstudiante}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CitacionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

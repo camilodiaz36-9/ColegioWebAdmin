@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PrestamoEditDlg" widgetVar="PrestamoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPrestamoTitle}">
+            <h:form id="PrestamoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{prestamoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPrestamoLabel_idPrestamo}" for="idPrestamo" />
+                        <p:inputText id="idPrestamo" value="#{prestamoController.selected.idPrestamo}" title="#{bundle.EditPrestamoTitle_idPrestamo}" required="true" requiredMessage="#{bundle.EditPrestamoRequiredMessage_idPrestamo}"/>
+                        <p:outputLabel value="#{bundle.EditPrestamoLabel_fechaPrestamo}" for="fechaPrestamo" />
+                        <p:calendar id="fechaPrestamo" pattern="MM/dd/yyyy HH:mm:ss" value="#{prestamoController.selected.fechaPrestamo}" title="#{bundle.EditPrestamoTitle_fechaPrestamo}" required="true" requiredMessage="#{bundle.EditPrestamoRequiredMessage_fechaPrestamo}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditPrestamoLabel_fechaDevolucion}" for="fechaDevolucion" />
+                        <p:calendar id="fechaDevolucion" pattern="MM/dd/yyyy HH:mm:ss" value="#{prestamoController.selected.fechaDevolucion}" title="#{bundle.EditPrestamoTitle_fechaDevolucion}" required="true" requiredMessage="#{bundle.EditPrestamoRequiredMessage_fechaDevolucion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditPrestamoLabel_libro}" for="libro" />
+                        <p:inputText id="libro" value="#{prestamoController.selected.libro}" title="#{bundle.EditPrestamoTitle_libro}" required="true" requiredMessage="#{bundle.EditPrestamoRequiredMessage_libro}"/>
+                        <p:outputLabel value="#{bundle.EditPrestamoLabel_estudianteidEstudiante}" for="estudianteidEstudiante" />
+                        <p:selectOneMenu id="estudianteidEstudiante" value="#{prestamoController.selected.estudianteidEstudiante}" required="true" requiredMessage="#{bundle.EditPrestamoRequiredMessage_estudianteidEstudiante}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{estudianteController.itemsAvailableSelectOne}"
+                                           var="estudianteidEstudianteItem"
+                                           itemValue="#{estudianteidEstudianteItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{prestamoController.update}" value="#{bundle.Save}" update="display,:PrestamoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PrestamoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PrestamoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

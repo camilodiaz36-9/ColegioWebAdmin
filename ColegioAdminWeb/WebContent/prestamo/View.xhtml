@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PrestamoViewDlg" widgetVar="PrestamoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPrestamoTitle}">
+            <h:form id="PrestamoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{prestamoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPrestamoLabel_idPrestamo}"/>
+                        <h:outputText value="#{prestamoController.selected.idPrestamo}" title="#{bundle.ViewPrestamoTitle_idPrestamo}"/>
+                        <h:outputText value="#{bundle.ViewPrestamoLabel_fechaPrestamo}"/>
+                        <h:outputText value="#{prestamoController.selected.fechaPrestamo}" title="#{bundle.ViewPrestamoTitle_fechaPrestamo}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPrestamoLabel_fechaDevolucion}"/>
+                        <h:outputText value="#{prestamoController.selected.fechaDevolucion}" title="#{bundle.ViewPrestamoTitle_fechaDevolucion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPrestamoLabel_libro}"/>
+                        <h:outputText value="#{prestamoController.selected.libro}" title="#{bundle.ViewPrestamoTitle_libro}"/>
+                        <h:outputText value="#{bundle.ViewPrestamoLabel_estudianteidEstudiante}"/>
+                        <h:outputText value="#{prestamoController.selected.estudianteidEstudiante}" title="#{bundle.ViewPrestamoTitle_estudianteidEstudiante}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PrestamoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

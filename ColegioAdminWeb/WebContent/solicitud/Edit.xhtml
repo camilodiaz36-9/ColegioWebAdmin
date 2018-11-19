@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SolicitudEditDlg" widgetVar="SolicitudEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSolicitudTitle}">
+            <h:form id="SolicitudEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{solicitudController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSolicitudLabel_idSolicitud}" for="idSolicitud" />
+                        <p:inputText id="idSolicitud" value="#{solicitudController.selected.idSolicitud}" title="#{bundle.EditSolicitudTitle_idSolicitud}" required="true" requiredMessage="#{bundle.EditSolicitudRequiredMessage_idSolicitud}"/>
+                        <p:outputLabel value="#{bundle.EditSolicitudLabel_fechaRecibido}" for="fechaRecibido" />
+                        <p:calendar id="fechaRecibido" pattern="MM/dd/yyyy HH:mm:ss" value="#{solicitudController.selected.fechaRecibido}" title="#{bundle.EditSolicitudTitle_fechaRecibido}" required="true" requiredMessage="#{bundle.EditSolicitudRequiredMessage_fechaRecibido}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditSolicitudLabel_fechaEntrega}" for="fechaEntrega" />
+                        <p:calendar id="fechaEntrega" pattern="MM/dd/yyyy HH:mm:ss" value="#{solicitudController.selected.fechaEntrega}" title="#{bundle.EditSolicitudTitle_fechaEntrega}" required="true" requiredMessage="#{bundle.EditSolicitudRequiredMessage_fechaEntrega}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditSolicitudLabel_estudianteidEstudiante}" for="estudianteidEstudiante" />
+                        <p:selectOneMenu id="estudianteidEstudiante" value="#{solicitudController.selected.estudianteidEstudiante}" required="true" requiredMessage="#{bundle.EditSolicitudRequiredMessage_estudianteidEstudiante}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{estudianteController.itemsAvailableSelectOne}"
+                                           var="estudianteidEstudianteItem"
+                                           itemValue="#{estudianteidEstudianteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditSolicitudLabel_pagoidPago}" for="pagoidPago" />
+                        <p:selectOneMenu id="pagoidPago" value="#{solicitudController.selected.pagoidPago}" required="true" requiredMessage="#{bundle.EditSolicitudRequiredMessage_pagoidPago}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pagoController.itemsAvailableSelectOne}"
+                                           var="pagoidPagoItem"
+                                           itemValue="#{pagoidPagoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditSolicitudLabel_tramiteidTramite}" for="tramiteidTramite" />
+                        <p:selectOneMenu id="tramiteidTramite" value="#{solicitudController.selected.tramiteidTramite}" required="true" requiredMessage="#{bundle.EditSolicitudRequiredMessage_tramiteidTramite}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tramiteController.itemsAvailableSelectOne}"
+                                           var="tramiteidTramiteItem"
+                                           itemValue="#{tramiteidTramiteItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{solicitudController.update}" value="#{bundle.Save}" update="display,:SolicitudListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SolicitudEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SolicitudEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

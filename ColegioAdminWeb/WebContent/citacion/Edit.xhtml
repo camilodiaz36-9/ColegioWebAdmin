@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CitacionEditDlg" widgetVar="CitacionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCitacionTitle}">
+            <h:form id="CitacionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{citacionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCitacionLabel_idCitacion}" for="idCitacion" />
+                        <p:inputText id="idCitacion" value="#{citacionController.selected.idCitacion}" title="#{bundle.EditCitacionTitle_idCitacion}" required="true" requiredMessage="#{bundle.EditCitacionRequiredMessage_idCitacion}"/>
+                        <p:outputLabel value="#{bundle.EditCitacionLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy HH:mm:ss" value="#{citacionController.selected.fecha}" title="#{bundle.EditCitacionTitle_fecha}" required="true" requiredMessage="#{bundle.EditCitacionRequiredMessage_fecha}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCitacionLabel_detalles}" for="detalles" />
+                        <p:inputText id="detalles" value="#{citacionController.selected.detalles}" title="#{bundle.EditCitacionTitle_detalles}" required="true" requiredMessage="#{bundle.EditCitacionRequiredMessage_detalles}"/>
+                        <p:outputLabel value="#{bundle.EditCitacionLabel_numeroCitacion}" for="numeroCitacion" />
+                        <p:inputText id="numeroCitacion" value="#{citacionController.selected.numeroCitacion}" title="#{bundle.EditCitacionTitle_numeroCitacion}" required="true" requiredMessage="#{bundle.EditCitacionRequiredMessage_numeroCitacion}"/>
+                        <p:outputLabel value="#{bundle.EditCitacionLabel_estudianteidEstudiante}" for="estudianteidEstudiante" />
+                        <p:selectOneMenu id="estudianteidEstudiante" value="#{citacionController.selected.estudianteidEstudiante}" required="true" requiredMessage="#{bundle.EditCitacionRequiredMessage_estudianteidEstudiante}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{estudianteController.itemsAvailableSelectOne}"
+                                           var="estudianteidEstudianteItem"
+                                           itemValue="#{estudianteidEstudianteItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{citacionController.update}" value="#{bundle.Save}" update="display,:CitacionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CitacionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CitacionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

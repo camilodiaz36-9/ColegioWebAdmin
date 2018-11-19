@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TramiteViewDlg" widgetVar="TramiteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTramiteTitle}">
+            <h:form id="TramiteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tramiteController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTramiteLabel_idTramite}"/>
+                        <h:outputText value="#{tramiteController.selected.idTramite}" title="#{bundle.ViewTramiteTitle_idTramite}"/>
+                        <h:outputText value="#{bundle.ViewTramiteLabel_nombre}"/>
+                        <h:outputText value="#{tramiteController.selected.nombre}" title="#{bundle.ViewTramiteTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewTramiteLabel_sigla}"/>
+                        <h:outputText value="#{tramiteController.selected.sigla}" title="#{bundle.ViewTramiteTitle_sigla}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TramiteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

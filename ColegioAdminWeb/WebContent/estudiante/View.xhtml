@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EstudianteViewDlg" widgetVar="EstudianteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewEstudianteTitle}">
+            <h:form id="EstudianteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{estudianteController.selected != null}">
+                        <h:outputText value="#{bundle.ViewEstudianteLabel_idEstudiante}"/>
+                        <h:outputText value="#{estudianteController.selected.idEstudiante}" title="#{bundle.ViewEstudianteTitle_idEstudiante}"/>
+                        <h:outputText value="#{bundle.ViewEstudianteLabel_nombre}"/>
+                        <h:outputText value="#{estudianteController.selected.nombre}" title="#{bundle.ViewEstudianteTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewEstudianteLabel_apellido}"/>
+                        <h:outputText value="#{estudianteController.selected.apellido}" title="#{bundle.ViewEstudianteTitle_apellido}"/>
+                        <h:outputText value="#{bundle.ViewEstudianteLabel_numeroIdentificacion}"/>
+                        <h:outputText value="#{estudianteController.selected.numeroIdentificacion}" title="#{bundle.ViewEstudianteTitle_numeroIdentificacion}"/>
+                        <h:outputText value="#{bundle.ViewEstudianteLabel_acudienteidAcudiente}"/>
+                        <h:outputText value="#{estudianteController.selected.acudienteidAcudiente}" title="#{bundle.ViewEstudianteTitle_acudienteidAcudiente}"/>
+                        <h:outputText value="#{bundle.ViewEstudianteLabel_cursoidCurso}"/>
+                        <h:outputText value="#{estudianteController.selected.cursoidCurso}" title="#{bundle.ViewEstudianteTitle_cursoidCurso}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="EstudianteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

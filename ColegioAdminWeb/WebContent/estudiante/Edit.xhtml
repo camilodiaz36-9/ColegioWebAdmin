@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EstudianteEditDlg" widgetVar="EstudianteEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditEstudianteTitle}">
+            <h:form id="EstudianteEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{estudianteController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditEstudianteLabel_idEstudiante}" for="idEstudiante" />
+                        <p:inputText id="idEstudiante" value="#{estudianteController.selected.idEstudiante}" title="#{bundle.EditEstudianteTitle_idEstudiante}" required="true" requiredMessage="#{bundle.EditEstudianteRequiredMessage_idEstudiante}"/>
+                        <p:outputLabel value="#{bundle.EditEstudianteLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{estudianteController.selected.nombre}" title="#{bundle.EditEstudianteTitle_nombre}" required="true" requiredMessage="#{bundle.EditEstudianteRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditEstudianteLabel_apellido}" for="apellido" />
+                        <p:inputText id="apellido" value="#{estudianteController.selected.apellido}" title="#{bundle.EditEstudianteTitle_apellido}" required="true" requiredMessage="#{bundle.EditEstudianteRequiredMessage_apellido}"/>
+                        <p:outputLabel value="#{bundle.EditEstudianteLabel_numeroIdentificacion}" for="numeroIdentificacion" />
+                        <p:inputText id="numeroIdentificacion" value="#{estudianteController.selected.numeroIdentificacion}" title="#{bundle.EditEstudianteTitle_numeroIdentificacion}" required="true" requiredMessage="#{bundle.EditEstudianteRequiredMessage_numeroIdentificacion}"/>
+                        <p:outputLabel value="#{bundle.EditEstudianteLabel_acudienteidAcudiente}" for="acudienteidAcudiente" />
+                        <p:selectOneMenu id="acudienteidAcudiente" value="#{estudianteController.selected.acudienteidAcudiente}" required="true" requiredMessage="#{bundle.EditEstudianteRequiredMessage_acudienteidAcudiente}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{acudienteController.itemsAvailableSelectOne}"
+                                           var="acudienteidAcudienteItem"
+                                           itemValue="#{acudienteidAcudienteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditEstudianteLabel_cursoidCurso}" for="cursoidCurso" />
+                        <p:selectOneMenu id="cursoidCurso" value="#{estudianteController.selected.cursoidCurso}" required="true" requiredMessage="#{bundle.EditEstudianteRequiredMessage_cursoidCurso}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cursoController.itemsAvailableSelectOne}"
+                                           var="cursoidCursoItem"
+                                           itemValue="#{cursoidCursoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{estudianteController.update}" value="#{bundle.Save}" update="display,:EstudianteListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EstudianteEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EstudianteEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
