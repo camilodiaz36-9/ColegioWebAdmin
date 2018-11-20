@@ -45,7 +45,7 @@ public class Extension implements Serializable {
     @NotNull
     @Column(name = "numero")
     private int numero;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "extensionidExtension")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "extension")
     private List<Usuario> usuarioList;
 
     public Extension() {

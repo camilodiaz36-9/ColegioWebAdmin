@@ -67,4 +67,5 @@ public class JsfUtil {
         DELETE,
         UPDATE
     }
+    
 }

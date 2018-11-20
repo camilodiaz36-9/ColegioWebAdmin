@@ -70,10 +70,10 @@ public class Usuario implements Serializable {
     private List<Curso> cursoList;
     @JoinColumn(name = "Extension_idExtension", referencedColumnName = "idExtension")
     @ManyToOne(optional = false)
-    private Extension extensionidExtension;
+    private Extension extension;
     @JoinColumn(name = "Rol_idRol", referencedColumnName = "idRol")
     @ManyToOne(optional = false)
-    private Rol rolidRol;
+    private Rol rol;
 
     public Usuario() {
     }
@@ -139,20 +139,20 @@ public class Usuario implements Serializable {
         this.cursoList = cursoList;
     }
 
-    public Extension getExtensionidExtension() {
-        return extensionidExtension;
+    public Extension getExtension() {
+        return extension;
     }
 
-    public void setExtensionidExtension(Extension extensionidExtension) {
-        this.extensionidExtension = extensionidExtension;
+    public void setExtension(Extension extension) {
+        this.extension = extension;
     }
 
-    public Rol getRolidRol() {
-        return rolidRol;
+    public Rol getRol() {
+        return rol;
     }
 
-    public void setRolidRol(Rol rolidRol) {
-        this.rolidRol = rolidRol;
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 
     @Override

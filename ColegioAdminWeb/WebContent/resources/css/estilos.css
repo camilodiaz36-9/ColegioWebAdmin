@@ -1,0 +1,41 @@
+.ui-widget {
+    font-size: 14px !important;
+}
+.ui-layout-north {
+    z-index: 20 !important;
+    overflow: visible !important;;
+}
+.ui-layout-north .ui-layout-unit-content {
+    overflow: visible !important;
+}
+.ui-widget-header {
+    text-align: center;
+    text-transform: uppercase;
+}
+.ui-datatable-footer .ui-button {
+    float: left;
+    margin-top: 25px !important;
+}
+
+.containerLogin{
+    font-size: 16px;
+    display: block;
+    width: 320px;
+    height: 126px;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -160px;
+    margin-top: -63px;
+}
+
+.parentAyudaIndex {
+	padding: 20% 0;
+}
+.childAyudaIndex {
+	padding: 20% 0;
+}
+
+.fondoLogin{
+    background-color: #000000;
+}

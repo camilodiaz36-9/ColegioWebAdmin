@@ -1,48 +1,74 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
-        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <title><h:outputText value="#{bundle.Titulo_Index}" /></title>
+        <h:outputStylesheet library="css" name="estilos.css"/>
+        <link rel="shortcut icon" href="/ColegioAdminWeb/resources/images/favicon.ico" />
     </h:head>
+
     <h:body>
-        Hello from Facelets
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
-        <br />
-        <h:link outcome="/acudiente/List" value="Show All Acudiente Items"/>
-        <br />
-        <h:link outcome="/citacion/List" value="Show All Citacion Items"/>
-        <br />
-        <h:link outcome="/curso/List" value="Show All Curso Items"/>
-        <br />
-        <h:link outcome="/estudiante/List" value="Show All Estudiante Items"/>
-        <br />
-        <h:link outcome="/extension/List" value="Show All Extension Items"/>
-        <br />
-        <h:link outcome="/pago/List" value="Show All Pago Items"/>
-        <br />
-        <h:link outcome="/prestamo/List" value="Show All Prestamo Items"/>
-        <br />
-        <h:link outcome="/rol/List" value="Show All Rol Items"/>
-        <br />
-        <h:link outcome="/solicitud/List" value="Show All Solicitud Items"/>
-        <br />
-        <h:link outcome="/tramite/List" value="Show All Tramite Items"/>
-        <br />
-        <h:link outcome="/usuario/List" value="Show All Usuario Items"/>
+
+        <h:form>
+            <p:contextMenu>  
+                <p:menuitem value="#{bundle.Nopermitido_Index}" icon="ui-icon-close"/>  
+            </p:contextMenu>
+        </h:form>
+
+        <p:growl id="mensajesIndex" life="2000" showDetail="true" />
+
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="north" size="120" resizable="false" closable="false" collapsible="false">
+                <h:panelGrid columns="3" style="margin: 0 auto">
+                    <h:graphicImage url="/resources/images/escudo_ud.png" alt="#{bundle.ImgAltLogoUD_Index}" width="90" height="90" />
+                    <div align="center">
+                        <h1>#{bundle.TituloApp_Index}</h1>
+                        <h2>#{bundle.NombreUD_Index}</h2>
+                    </div>
+                    <h:graphicImage url="/resources/images/sac.png" alt="#{bundle.TituloApp_Index}" width="140" height="90" />
+                </h:panelGrid>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <div class="containerLogin">
+                    <h:form id="formLogin">
+                        <p:panelGrid id="panelLogin" columns="2" style="margin: 0 auto">
+                            <f:facet name="header">                            
+                                <h:outputText value="#{bundle.HeaderLogin_Index}" />
+                            </f:facet>
+
+                            <h:outputLabel value="#{bundle.UsuarioLogin_Index}"  />
+                            <p:inputText id="user" label="#{bundle.UsuarioLabel_Index}" required="true" 
+                            placeholder="#{bundle.CedulaPholder_Index}" value="#{sesionController.correoUsuario}" 
+                            size="32" validatorMessage="#{bundle.UsuarioValidator_Index}">
+                                <f:validateRegex pattern="^[A-Za-z0-9+_.-]+@(.+)$" />
+                            </p:inputText>
+
+                            <h:outputLabel value="#{bundle.ClaveLogin_Index}" />
+                            <p:password id="pass" label="#{bundle.ClaveLabel_Index}" required="true" value="#{sesionController.contrasenaUsuario}" 
+                            size="32" placeholder="#{bundle.ClavePholder_Index}" />
+
+                            <f:facet name="footer">
+                                <p:commandButton action="#{sesionController.login}" value="#{bundle.LoginAction_Index}" icon="ui-icon-check" 
+                                style="margin: 0" update=":mensajesIndex,formLogin" />
+                            </f:facet>
+                        </p:panelGrid>
+                    </h:form>
+                </div>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="120" resizable="false" closable="false" collapsible="false">
+                <div align="center">
+                    <h3><h:outputText value="#{bundle.FooterVersion_Index}" /></h3>
+                    <h3>Optimizado para <a href="http://www.google.com/intl/es-419/chrome/browser/" target="_blank">Google Chrome</a> y 
+                    <a href="http://www.mozilla.org/es-ES/firefox/new/" target="_blank">Mozilla Firefox</a></h3>
+                </div>
+            </p:layoutUnit>
+
+        </p:layout>
     </h:body>
-
-
-
-
-
-
-
-
-
-
-
 </html>
-
