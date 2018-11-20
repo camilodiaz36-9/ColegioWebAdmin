@@ -61,13 +61,13 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_extensionidExtension}"/>
                             </f:facet>
-                            <h:outputText value="#{item.extensionidExtension}"/>
+                            <h:outputText value="#{item.extension}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_rolidRol}"/>
                             </f:facet>
-                            <h:outputText value="#{item.rolidRol}"/>
+                            <h:outputText value="#{item.rol}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{usuarioController.prepareCreate}" update=":UsuarioCreateForm" oncomplete="PF('UsuarioCreateDialog').show()"/>

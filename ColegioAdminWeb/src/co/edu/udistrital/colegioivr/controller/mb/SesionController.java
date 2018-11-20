@@ -2,7 +2,11 @@ package co.edu.udistrital.colegioivr.controller.mb;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -38,16 +42,33 @@ public class SesionController implements Serializable {
 		usuarioLogin = usuarioService.login(usuarioLogin);
 		
 		if(usuarioLogin != null) {
+			logueado = true;
+			HttpSession sesion = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+			sesion.setMaxInactiveInterval(900);
+			sesion.setAttribute("sesionController", this);
 			return "/pages/administration";
 		} else {
 			JsfUtil.addErrorMessage("Credenciales no válidas.");
 			correoUsuario = null;
 			contrasenaUsuario = null;
+			logueado = false;
 			return null;
 		}
 	}
 	
 	public String logout() {
+		HttpSession sesion = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		sesion.removeAttribute("sesionController");
+		HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+        try {
+        	//TODO: Pendiente implementación login to realm (JAAS)
+            request.logout();
+        } catch (ServletException ex) {
+            System.err.println("SesionController.logout() --> Error al cerrar sesión: " + ex.getLocalizedMessage());
+        } finally {
+        	usuarioLogin = new Usuario();
+            logueado = false;
+        }
 		return "/index.xhtml?faces-redirect=true";
 	}
 
