@@ -19,7 +19,8 @@
                         <h:outputText value="#{bundle.ViewPagoLabel_usado}"/>
                         <h:outputText value="#{pagoController.selected.usado}" title="#{bundle.ViewPagoTitle_usado}"/>
                         <h:outputText value="#{bundle.ViewPagoLabel_estudianteidEstudiante}"/>
-                        <h:outputText value="#{pagoController.selected.estudianteidEstudiante}" title="#{bundle.ViewPagoTitle_estudianteidEstudiante}"/>
+                        <h:outputText value="#{pagoController.selected.estudiante.nombre} #{pagoController.selected.estudiante.apellido}" 
+                        title="#{bundle.ViewPagoTitle_estudianteidEstudiante}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="PagoViewDialog.hide()"/>
                 </h:panelGroup>

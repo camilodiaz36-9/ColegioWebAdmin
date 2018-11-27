@@ -23,7 +23,8 @@
                         <h:outputText value="#{bundle.ViewCitacionLabel_numeroCitacion}"/>
                         <h:outputText value="#{citacionController.selected.numeroCitacion}" title="#{bundle.ViewCitacionTitle_numeroCitacion}"/>
                         <h:outputText value="#{bundle.ViewCitacionLabel_estudianteidEstudiante}"/>
-                        <h:outputText value="#{citacionController.selected.estudianteidEstudiante}" title="#{bundle.ViewCitacionTitle_estudianteidEstudiante}"/>
+                        <h:outputText value="#{citacionController.selected.estudiante.nombre} #{citacionController.selected.estudiante.apellido}" 
+                        title="#{bundle.ViewCitacionTitle_estudianteidEstudiante}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="CitacionViewDialog.hide()"/>
                 </h:panelGroup>

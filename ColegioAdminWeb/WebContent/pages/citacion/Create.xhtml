@@ -21,10 +21,11 @@
                         <p:outputLabel value="#{bundle.CreateCitacionLabel_numeroCitacion}" for="numeroCitacion" />
                         <p:inputText id="numeroCitacion" value="#{citacionController.selected.numeroCitacion}" title="#{bundle.CreateCitacionTitle_numeroCitacion}" required="true" requiredMessage="#{bundle.CreateCitacionRequiredMessage_numeroCitacion}"/>
                         <p:outputLabel value="#{bundle.CreateCitacionLabel_estudianteidEstudiante}" for="estudianteidEstudiante" />
-                        <p:selectOneMenu id="estudianteidEstudiante" value="#{citacionController.selected.estudianteidEstudiante}" required="true" requiredMessage="#{bundle.EditCitacionRequiredMessage_estudianteidEstudiante}">
+                        <p:selectOneMenu id="estudianteidEstudiante" value="#{citacionController.selected.estudiante}" required="true" requiredMessage="#{bundle.EditCitacionRequiredMessage_estudianteidEstudiante}">
                             <f:selectItems value="#{estudianteController.itemsAvailableSelectOne}"
                                            var="estudianteidEstudianteItem"
-                                           itemValue="#{estudianteidEstudianteItem}"/>
+                                           itemValue="#{estudianteidEstudianteItem}"
+                                           itemLabel="#{estudianteidEstudianteItem.nombre} #{estudianteidEstudianteItem.apellido}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{citacionController.create}" value="#{bundle.Save}" update="display,:CitacionListForm:datalist,:growl" oncomplete="handleSubmit(args,'CitacionCreateDialog');"/>

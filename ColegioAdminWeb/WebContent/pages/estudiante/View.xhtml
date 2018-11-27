@@ -21,9 +21,9 @@
                         <h:outputText value="#{bundle.ViewEstudianteLabel_numeroIdentificacion}"/>
                         <h:outputText value="#{estudianteController.selected.numeroIdentificacion}" title="#{bundle.ViewEstudianteTitle_numeroIdentificacion}"/>
                         <h:outputText value="#{bundle.ViewEstudianteLabel_acudienteidAcudiente}"/>
-                        <h:outputText value="#{estudianteController.selected.acudienteidAcudiente}" title="#{bundle.ViewEstudianteTitle_acudienteidAcudiente}"/>
+                        <h:outputText value="#{estudianteController.selected.acudiente.nombre} #{estudianteController.selected.acudiente.apellido}" title="#{bundle.ViewEstudianteTitle_acudienteidAcudiente}"/>
                         <h:outputText value="#{bundle.ViewEstudianteLabel_cursoidCurso}"/>
-                        <h:outputText value="#{estudianteController.selected.cursoidCurso}" title="#{bundle.ViewEstudianteTitle_cursoidCurso}"/>
+                        <h:outputText value="#{estudianteController.selected.curso.nombre}" title="#{bundle.ViewEstudianteTitle_cursoidCurso}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="EstudianteViewDialog.hide()"/>
                 </h:panelGroup>

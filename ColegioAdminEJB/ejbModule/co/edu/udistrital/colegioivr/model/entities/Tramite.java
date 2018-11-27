@@ -51,7 +51,7 @@ public class Tramite implements Serializable {
     @Size(max = 2)
     @Column(name = "sigla")
     private String sigla;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tramiteidTramite")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tramite")
     private List<Solicitud> solicitudList;
 
     public Tramite() {

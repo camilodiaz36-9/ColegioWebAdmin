@@ -23,11 +23,12 @@
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewSolicitudLabel_estudianteidEstudiante}"/>
-                        <h:outputText value="#{solicitudController.selected.estudianteidEstudiante}" title="#{bundle.ViewSolicitudTitle_estudianteidEstudiante}"/>
+                        <h:outputText value="#{solicitudController.selected.estudiante.nombre} #{solicitudController.selected.estudiante.apellido}" 
+                        title="#{bundle.ViewSolicitudTitle_estudianteidEstudiante}"/>
                         <h:outputText value="#{bundle.ViewSolicitudLabel_pagoidPago}"/>
-                        <h:outputText value="#{solicitudController.selected.pagoidPago}" title="#{bundle.ViewSolicitudTitle_pagoidPago}"/>
+                        <h:outputText value="#{solicitudController.selected.pago.numeroReferencia}" title="#{bundle.ViewSolicitudTitle_pagoidPago}"/>
                         <h:outputText value="#{bundle.ViewSolicitudLabel_tramiteidTramite}"/>
-                        <h:outputText value="#{solicitudController.selected.tramiteidTramite}" title="#{bundle.ViewSolicitudTitle_tramiteidTramite}"/>
+                        <h:outputText value="#{solicitudController.selected.tramite.nombre}" title="#{bundle.ViewSolicitudTitle_tramiteidTramite}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="SolicitudViewDialog.hide()"/>
                 </h:panelGroup>

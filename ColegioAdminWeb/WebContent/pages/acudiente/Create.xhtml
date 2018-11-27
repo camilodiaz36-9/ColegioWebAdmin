@@ -12,8 +12,6 @@
             <h:form id="AcudienteCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{acudienteController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateAcudienteLabel_idAcudiente}" for="idAcudiente" />
-                        <p:inputText id="idAcudiente" value="#{acudienteController.selected.idAcudiente}" title="#{bundle.CreateAcudienteTitle_idAcudiente}" required="true" requiredMessage="#{bundle.CreateAcudienteRequiredMessage_idAcudiente}"/>
                         <p:outputLabel value="#{bundle.CreateAcudienteLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{acudienteController.selected.nombre}" title="#{bundle.CreateAcudienteTitle_nombre}" required="true" requiredMessage="#{bundle.CreateAcudienteRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.CreateAcudienteLabel_apellido}" for="apellido" />

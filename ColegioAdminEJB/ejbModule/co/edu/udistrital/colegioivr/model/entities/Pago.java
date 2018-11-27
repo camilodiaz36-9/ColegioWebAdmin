@@ -50,11 +50,11 @@ public class Pago implements Serializable {
     private int numeroReferencia;
     @Column(name = "usado")
     private Short usado;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pagoidPago")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pago")
     private List<Solicitud> solicitudList;
     @JoinColumn(name = "Estudiante_idEstudiante", referencedColumnName = "idEstudiante")
     @ManyToOne(optional = false)
-    private Estudiante estudianteidEstudiante;
+    private Estudiante estudiante;
 
     public Pago() {
     }
@@ -101,12 +101,12 @@ public class Pago implements Serializable {
         this.solicitudList = solicitudList;
     }
 
-    public Estudiante getEstudianteidEstudiante() {
-        return estudianteidEstudiante;
+    public Estudiante getEstudiante() {
+        return estudiante;
     }
 
-    public void setEstudianteidEstudiante(Estudiante estudianteidEstudiante) {
-        this.estudianteidEstudiante = estudianteidEstudiante;
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
     }
 
     @Override

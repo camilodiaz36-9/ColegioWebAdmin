@@ -60,7 +60,7 @@ public class Prestamo implements Serializable {
     private int libro;
     @JoinColumn(name = "Estudiante_idEstudiante", referencedColumnName = "idEstudiante")
     @ManyToOne(optional = false)
-    private Estudiante estudianteidEstudiante;
+    private Estudiante estudiante;
 
     public Prestamo() {
     }
@@ -108,12 +108,12 @@ public class Prestamo implements Serializable {
         this.libro = libro;
     }
 
-    public Estudiante getEstudianteidEstudiante() {
-        return estudianteidEstudiante;
+    public Estudiante getEstudiante() {
+        return estudiante;
     }
 
-    public void setEstudianteidEstudiante(Estudiante estudianteidEstudiante) {
-        this.estudianteidEstudiante = estudianteidEstudiante;
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
     }
 
     @Override

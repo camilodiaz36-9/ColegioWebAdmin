@@ -25,7 +25,8 @@
                         <h:outputText value="#{bundle.ViewPrestamoLabel_libro}"/>
                         <h:outputText value="#{prestamoController.selected.libro}" title="#{bundle.ViewPrestamoTitle_libro}"/>
                         <h:outputText value="#{bundle.ViewPrestamoLabel_estudianteidEstudiante}"/>
-                        <h:outputText value="#{prestamoController.selected.estudianteidEstudiante}" title="#{bundle.ViewPrestamoTitle_estudianteidEstudiante}"/>
+                        <h:outputText value="#{prestamoController.selected.estudiante.nombre} #{prestamoController.selected.estudiante.apellido}" 
+                        title="#{bundle.ViewPrestamoTitle_estudianteidEstudiante}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="PrestamoViewDialog.hide()"/>
                 </h:panelGroup>

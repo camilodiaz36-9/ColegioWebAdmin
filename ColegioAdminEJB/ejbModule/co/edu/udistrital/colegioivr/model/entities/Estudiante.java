@@ -60,19 +60,19 @@ public class Estudiante implements Serializable {
     @NotNull
     @Column(name = "numeroIdentificacion")
     private int numeroIdentificacion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estudianteidEstudiante")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estudiante")
     private List<Solicitud> solicitudList;
     @JoinColumn(name = "Acudiente_idAcudiente", referencedColumnName = "idAcudiente")
     @ManyToOne(optional = false)
-    private Acudiente acudienteidAcudiente;
+    private Acudiente acudiente;
     @JoinColumn(name = "Curso_idCurso", referencedColumnName = "idCurso")
     @ManyToOne(optional = false)
-    private Curso cursoidCurso;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estudianteidEstudiante")
+    private Curso curso;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estudiante")
     private List<Prestamo> prestamoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estudianteidEstudiante")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estudiante")
     private List<Citacion> citacionList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estudianteidEstudiante")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estudiante")
     private List<Pago> pagoList;
 
     public Estudiante() {
@@ -130,20 +130,20 @@ public class Estudiante implements Serializable {
         this.solicitudList = solicitudList;
     }
 
-    public Acudiente getAcudienteidAcudiente() {
-        return acudienteidAcudiente;
+    public Acudiente getAcudiente() {
+        return acudiente;
     }
 
-    public void setAcudienteidAcudiente(Acudiente acudienteidAcudiente) {
-        this.acudienteidAcudiente = acudienteidAcudiente;
+    public void setAcudiente(Acudiente acudiente) {
+        this.acudiente = acudiente;
     }
 
-    public Curso getCursoidCurso() {
-        return cursoidCurso;
+    public Curso getCurso() {
+        return curso;
     }
 
-    public void setCursoidCurso(Curso cursoidCurso) {
-        this.cursoidCurso = cursoidCurso;
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 
     @XmlTransient

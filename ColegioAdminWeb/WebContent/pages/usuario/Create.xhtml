@@ -23,16 +23,18 @@
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_password}" for="password" />
                         <p:inputText id="password" value="#{usuarioController.selected.password}" title="#{bundle.CreateUsuarioTitle_password}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_password}"/>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_extensionidExtension}" for="extensionidExtension" />
-                        <p:selectOneMenu id="extensionidExtension" value="#{usuarioController.selected.extensionidExtension}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_extensionidExtension}">
+                        <p:selectOneMenu id="extensionidExtension" value="#{usuarioController.selected.extension}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_extensionidExtension}">
                             <f:selectItems value="#{extensionController.itemsAvailableSelectOne}"
                                            var="extensionidExtensionItem"
-                                           itemValue="#{extensionidExtensionItem}"/>
+                                           itemValue="#{extensionidExtensionItem}"
+                                           itemLabel="#{extensionidExtensionItem.numero}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_rolidRol}" for="rolidRol" />
-                        <p:selectOneMenu id="rolidRol" value="#{usuarioController.selected.rolidRol}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_rolidRol}">
+                        <p:selectOneMenu id="rolidRol" value="#{usuarioController.selected.rol}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_rolidRol}">
                             <f:selectItems value="#{rolController.itemsAvailableSelectOne}"
                                            var="rolidRolItem"
-                                           itemValue="#{rolidRolItem}"/>
+                                           itemValue="#{rolidRolItem}"
+                                           itemLabel="#{rolidRolItem.nombre}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{usuarioController.create}" value="#{bundle.Save}" update="display,:UsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'UsuarioCreateDialog');"/>

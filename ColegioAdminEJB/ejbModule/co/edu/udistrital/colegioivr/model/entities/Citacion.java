@@ -61,7 +61,7 @@ public class Citacion implements Serializable {
     private int numeroCitacion;
     @JoinColumn(name = "Estudiante_idEstudiante", referencedColumnName = "idEstudiante")
     @ManyToOne(optional = false)
-    private Estudiante estudianteidEstudiante;
+    private Estudiante estudiante;
 
     public Citacion() {
     }
@@ -109,12 +109,12 @@ public class Citacion implements Serializable {
         this.numeroCitacion = numeroCitacion;
     }
 
-    public Estudiante getEstudianteidEstudiante() {
-        return estudianteidEstudiante;
+    public Estudiante getEstudiante() {
+        return estudiante;
     }
 
-    public void setEstudianteidEstudiante(Estudiante estudianteidEstudiante) {
-        this.estudianteidEstudiante = estudianteidEstudiante;
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
     }
 
     @Override

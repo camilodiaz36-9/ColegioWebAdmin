@@ -57,7 +57,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCitacionTitle_estudianteidEstudiante}"/>
                             </f:facet>
-                            <h:outputText value="#{item.estudianteidEstudiante}"/>
+                            <h:outputText value="#{item.estudiante.nombre} #{item.estudiante.apellido}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{citacionController.prepareCreate}" update=":CitacionCreateForm" oncomplete="PF('CitacionCreateDialog').show()"/>

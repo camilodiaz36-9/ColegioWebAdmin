@@ -21,11 +21,12 @@
                         <p:outputLabel value="#{bundle.EditCitacionLabel_numeroCitacion}" for="numeroCitacion" />
                         <p:inputText id="numeroCitacion" value="#{citacionController.selected.numeroCitacion}" title="#{bundle.EditCitacionTitle_numeroCitacion}" required="true" requiredMessage="#{bundle.EditCitacionRequiredMessage_numeroCitacion}"/>
                         <p:outputLabel value="#{bundle.EditCitacionLabel_estudianteidEstudiante}" for="estudianteidEstudiante" />
-                        <p:selectOneMenu id="estudianteidEstudiante" value="#{citacionController.selected.estudianteidEstudiante}" required="true" requiredMessage="#{bundle.EditCitacionRequiredMessage_estudianteidEstudiante}">
+                        <p:selectOneMenu id="estudianteidEstudiante" value="#{citacionController.selected.estudiante}" required="true" requiredMessage="#{bundle.EditCitacionRequiredMessage_estudianteidEstudiante}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{estudianteController.itemsAvailableSelectOne}"
                                            var="estudianteidEstudianteItem"
-                                           itemValue="#{estudianteidEstudianteItem}"/>
+                                           itemValue="#{estudianteidEstudianteItem}"
+                                           itemLabel="#{estudianteidEstudianteItem.nombre} #{estudianteidEstudianteItem.apellido}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{citacionController.update}" value="#{bundle.Save}" update="display,:CitacionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CitacionEditDialog');"/>

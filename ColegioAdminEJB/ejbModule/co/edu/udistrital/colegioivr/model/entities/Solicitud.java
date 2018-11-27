@@ -55,13 +55,13 @@ public class Solicitud implements Serializable {
     private Date fechaEntrega;
     @JoinColumn(name = "Estudiante_idEstudiante", referencedColumnName = "idEstudiante")
     @ManyToOne(optional = false)
-    private Estudiante estudianteidEstudiante;
+    private Estudiante estudiante;
     @JoinColumn(name = "Pago_idPago", referencedColumnName = "idPago")
     @ManyToOne(optional = false)
-    private Pago pagoidPago;
+    private Pago pago;
     @JoinColumn(name = "Tramite_idTramite", referencedColumnName = "idTramite")
     @ManyToOne(optional = false)
-    private Tramite tramiteidTramite;
+    private Tramite tramite;
 
     public Solicitud() {
     }
@@ -100,28 +100,28 @@ public class Solicitud implements Serializable {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public Estudiante getEstudianteidEstudiante() {
-        return estudianteidEstudiante;
+    public Estudiante getEstudiante() {
+        return estudiante;
     }
 
-    public void setEstudianteidEstudiante(Estudiante estudianteidEstudiante) {
-        this.estudianteidEstudiante = estudianteidEstudiante;
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
     }
 
-    public Pago getPagoidPago() {
-        return pagoidPago;
+    public Pago getPago() {
+        return pago;
     }
 
-    public void setPagoidPago(Pago pagoidPago) {
-        this.pagoidPago = pagoidPago;
+    public void setPago(Pago pago) {
+        this.pago = pago;
     }
 
-    public Tramite getTramiteidTramite() {
-        return tramiteidTramite;
+    public Tramite getTramite() {
+        return tramite;
     }
 
-    public void setTramiteidTramite(Tramite tramiteidTramite) {
-        this.tramiteidTramite = tramiteidTramite;
+    public void setTramite(Tramite tramite) {
+        this.tramite = tramite;
     }
 
     @Override

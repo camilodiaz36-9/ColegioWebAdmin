@@ -19,25 +19,28 @@
                         <p:outputLabel value="#{bundle.EditSolicitudLabel_fechaEntrega}" for="fechaEntrega" />
                         <p:calendar id="fechaEntrega" pattern="MM/dd/yyyy HH:mm:ss" value="#{solicitudController.selected.fechaEntrega}" title="#{bundle.EditSolicitudTitle_fechaEntrega}" required="true" requiredMessage="#{bundle.EditSolicitudRequiredMessage_fechaEntrega}" showOn="button"/>
                         <p:outputLabel value="#{bundle.EditSolicitudLabel_estudianteidEstudiante}" for="estudianteidEstudiante" />
-                        <p:selectOneMenu id="estudianteidEstudiante" value="#{solicitudController.selected.estudianteidEstudiante}" required="true" requiredMessage="#{bundle.EditSolicitudRequiredMessage_estudianteidEstudiante}">
+                        <p:selectOneMenu id="estudianteidEstudiante" value="#{solicitudController.selected.estudiante}" required="true" requiredMessage="#{bundle.EditSolicitudRequiredMessage_estudianteidEstudiante}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{estudianteController.itemsAvailableSelectOne}"
                                            var="estudianteidEstudianteItem"
-                                           itemValue="#{estudianteidEstudianteItem}"/>
+                                           itemValue="#{estudianteidEstudianteItem}"
+                                           itemLabel="#{estudianteidEstudianteItem.nombre} #{estudianteidEstudianteItem.apellido}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditSolicitudLabel_pagoidPago}" for="pagoidPago" />
-                        <p:selectOneMenu id="pagoidPago" value="#{solicitudController.selected.pagoidPago}" required="true" requiredMessage="#{bundle.EditSolicitudRequiredMessage_pagoidPago}">
+                        <p:selectOneMenu id="pagoidPago" value="#{solicitudController.selected.pago}" required="true" requiredMessage="#{bundle.EditSolicitudRequiredMessage_pagoidPago}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{pagoController.itemsAvailableSelectOne}"
                                            var="pagoidPagoItem"
-                                           itemValue="#{pagoidPagoItem}"/>
+                                           itemValue="#{pagoidPagoItem}"
+                                           itemLabel="#{pagoidPagoItem.numeroReferencia}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditSolicitudLabel_tramiteidTramite}" for="tramiteidTramite" />
-                        <p:selectOneMenu id="tramiteidTramite" value="#{solicitudController.selected.tramiteidTramite}" required="true" requiredMessage="#{bundle.EditSolicitudRequiredMessage_tramiteidTramite}">
+                        <p:selectOneMenu id="tramiteidTramite" value="#{solicitudController.selected.tramite}" required="true" requiredMessage="#{bundle.EditSolicitudRequiredMessage_tramiteidTramite}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{tramiteController.itemsAvailableSelectOne}"
                                            var="tramiteidTramiteItem"
-                                           itemValue="#{tramiteidTramiteItem}"/>
+                                           itemValue="#{tramiteidTramiteItem}"
+                                           itemLabel="#{tramiteidTramiteItem.nombre}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{solicitudController.update}" value="#{bundle.Save}" update="display,:SolicitudListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SolicitudEditDialog');"/>

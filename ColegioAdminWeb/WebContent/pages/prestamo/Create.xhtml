@@ -21,10 +21,11 @@
                         <p:outputLabel value="#{bundle.CreatePrestamoLabel_libro}" for="libro" />
                         <p:inputText id="libro" value="#{prestamoController.selected.libro}" title="#{bundle.CreatePrestamoTitle_libro}" required="true" requiredMessage="#{bundle.CreatePrestamoRequiredMessage_libro}"/>
                         <p:outputLabel value="#{bundle.CreatePrestamoLabel_estudianteidEstudiante}" for="estudianteidEstudiante" />
-                        <p:selectOneMenu id="estudianteidEstudiante" value="#{prestamoController.selected.estudianteidEstudiante}" required="true" requiredMessage="#{bundle.EditPrestamoRequiredMessage_estudianteidEstudiante}">
+                        <p:selectOneMenu id="estudianteidEstudiante" value="#{prestamoController.selected.estudiante}" required="true" requiredMessage="#{bundle.EditPrestamoRequiredMessage_estudianteidEstudiante}">
                             <f:selectItems value="#{estudianteController.itemsAvailableSelectOne}"
                                            var="estudianteidEstudianteItem"
-                                           itemValue="#{estudianteidEstudianteItem}"/>
+                                           itemValue="#{estudianteidEstudianteItem}"
+                                           itemLabel="#{estudianteidEstudianteItem.nombre} #{estudianteidEstudianteItem.apellido}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{prestamoController.create}" value="#{bundle.Save}" update="display,:PrestamoListForm:datalist,:growl" oncomplete="handleSubmit(args,'PrestamoCreateDialog');"/>

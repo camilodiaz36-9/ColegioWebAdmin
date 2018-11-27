@@ -21,16 +21,18 @@
                         <p:outputLabel value="#{bundle.CreateEstudianteLabel_numeroIdentificacion}" for="numeroIdentificacion" />
                         <p:inputText id="numeroIdentificacion" value="#{estudianteController.selected.numeroIdentificacion}" title="#{bundle.CreateEstudianteTitle_numeroIdentificacion}" required="true" requiredMessage="#{bundle.CreateEstudianteRequiredMessage_numeroIdentificacion}"/>
                         <p:outputLabel value="#{bundle.CreateEstudianteLabel_acudienteidAcudiente}" for="acudienteidAcudiente" />
-                        <p:selectOneMenu id="acudienteidAcudiente" value="#{estudianteController.selected.acudienteidAcudiente}" required="true" requiredMessage="#{bundle.EditEstudianteRequiredMessage_acudienteidAcudiente}">
+                        <p:selectOneMenu id="acudienteidAcudiente" value="#{estudianteController.selected.acudiente}" required="true" requiredMessage="#{bundle.EditEstudianteRequiredMessage_acudienteidAcudiente}">
                             <f:selectItems value="#{acudienteController.itemsAvailableSelectOne}"
                                            var="acudienteidAcudienteItem"
-                                           itemValue="#{acudienteidAcudienteItem}"/>
+                                           itemValue="#{acudienteidAcudienteItem}"
+                                           itemLabel="#{acudienteidAcudienteItem.nombre} #{acudienteidAcudienteItem.apellido}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateEstudianteLabel_cursoidCurso}" for="cursoidCurso" />
-                        <p:selectOneMenu id="cursoidCurso" value="#{estudianteController.selected.cursoidCurso}" required="true" requiredMessage="#{bundle.EditEstudianteRequiredMessage_cursoidCurso}">
+                        <p:selectOneMenu id="cursoidCurso" value="#{estudianteController.selected.curso}" required="true" requiredMessage="#{bundle.EditEstudianteRequiredMessage_cursoidCurso}">
                             <f:selectItems value="#{cursoController.itemsAvailableSelectOne}"
                                            var="cursoidCursoItem"
-                                           itemValue="#{cursoidCursoItem}"/>
+                                           itemValue="#{cursoidCursoItem}"
+                                           itemLabel="#{cursoidCursoItem.nombre}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{estudianteController.create}" value="#{bundle.Save}" update="display,:EstudianteListForm:datalist,:growl" oncomplete="handleSubmit(args,'EstudianteCreateDialog');"/>

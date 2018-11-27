@@ -12,8 +12,6 @@
             <h:form id="AcudienteViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{acudienteController.selected != null}">
-                        <h:outputText value="#{bundle.ViewAcudienteLabel_idAcudiente}"/>
-                        <h:outputText value="#{acudienteController.selected.idAcudiente}" title="#{bundle.ViewAcudienteTitle_idAcudiente}"/>
                         <h:outputText value="#{bundle.ViewAcudienteLabel_nombre}"/>
                         <h:outputText value="#{acudienteController.selected.nombre}" title="#{bundle.ViewAcudienteTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewAcudienteLabel_apellido}"/>

@@ -65,7 +65,7 @@ public class Acudiente implements Serializable {
     @Size(max = 256)
     @Column(name = "correo")
     private String correo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "acudienteidAcudiente")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "acudiente")
     private List<Estudiante> estudianteList;
 
     public Acudiente() {

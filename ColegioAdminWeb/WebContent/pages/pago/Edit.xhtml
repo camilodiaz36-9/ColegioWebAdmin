@@ -19,11 +19,12 @@
                         <p:outputLabel value="#{bundle.EditPagoLabel_usado}" for="usado" />
                         <p:inputText id="usado" value="#{pagoController.selected.usado}" title="#{bundle.EditPagoTitle_usado}" />
                         <p:outputLabel value="#{bundle.EditPagoLabel_estudianteidEstudiante}" for="estudianteidEstudiante" />
-                        <p:selectOneMenu id="estudianteidEstudiante" value="#{pagoController.selected.estudianteidEstudiante}" required="true" requiredMessage="#{bundle.EditPagoRequiredMessage_estudianteidEstudiante}">
+                        <p:selectOneMenu id="estudianteidEstudiante" value="#{pagoController.selected.estudiante}" required="true" requiredMessage="#{bundle.EditPagoRequiredMessage_estudianteidEstudiante}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{estudianteController.itemsAvailableSelectOne}"
                                            var="estudianteidEstudianteItem"
-                                           itemValue="#{estudianteidEstudianteItem}"/>
+                                           itemValue="#{estudianteidEstudianteItem}"
+                                           itemLabel="#{estudianteidEstudianteItem.nombre} #{estudianteidEstudianteItem.apellido}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{pagoController.update}" value="#{bundle.Save}" update="display,:PagoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PagoEditDialog');"/>

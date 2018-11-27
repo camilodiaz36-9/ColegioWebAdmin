@@ -53,19 +53,19 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSolicitudTitle_estudianteidEstudiante}"/>
                             </f:facet>
-                            <h:outputText value="#{item.estudianteidEstudiante}"/>
+                            <h:outputText value="#{item.estudiante.nombre} #{item.estudiante.apellido}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSolicitudTitle_pagoidPago}"/>
                             </f:facet>
-                            <h:outputText value="#{item.pagoidPago}"/>
+                            <h:outputText value="#{item.pago.numeroReferencia}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSolicitudTitle_tramiteidTramite}"/>
                             </f:facet>
-                            <h:outputText value="#{item.tramiteidTramite}"/>
+                            <h:outputText value="#{item.tramite.nombre}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{solicitudController.prepareCreate}" update=":SolicitudCreateForm" oncomplete="PF('SolicitudCreateDialog').show()"/>

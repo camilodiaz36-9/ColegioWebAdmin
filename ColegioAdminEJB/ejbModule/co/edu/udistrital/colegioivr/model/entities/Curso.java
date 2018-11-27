@@ -55,7 +55,7 @@ public class Curso implements Serializable {
         @JoinColumn(name = "Usuario_idUsuario", referencedColumnName = "idUsuario")})
     @ManyToMany
     private List<Usuario> usuarioList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cursoidCurso")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
     private List<Estudiante> estudianteList;
 
     public Curso() {
