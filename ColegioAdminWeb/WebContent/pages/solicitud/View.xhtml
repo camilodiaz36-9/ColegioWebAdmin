@@ -31,6 +31,7 @@
                         <h:outputText value="#{solicitudController.selected.tramite.nombre}" title="#{bundle.ViewSolicitudTitle_tramiteidTramite}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="SolicitudViewDialog.hide()"/>
+                    <p:commandButton value="Ver Reporte" action="#{solicitudController.descargarReporte}" ajax="false"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

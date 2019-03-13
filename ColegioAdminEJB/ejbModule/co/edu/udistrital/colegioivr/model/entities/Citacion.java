@@ -57,8 +57,9 @@ public class Citacion implements Serializable {
     private String detalles;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 11)
     @Column(name = "numeroCitacion")
-    private int numeroCitacion;
+    private String numeroCitacion;
     @JoinColumn(name = "Estudiante_idEstudiante", referencedColumnName = "idEstudiante")
     @ManyToOne(optional = false)
     private Estudiante estudiante;
@@ -70,7 +71,7 @@ public class Citacion implements Serializable {
         this.idCitacion = idCitacion;
     }
 
-    public Citacion(Integer idCitacion, Date fecha, String detalles, int numeroCitacion) {
+    public Citacion(Integer idCitacion, Date fecha, String detalles, String numeroCitacion) {
         this.idCitacion = idCitacion;
         this.fecha = fecha;
         this.detalles = detalles;
@@ -101,11 +102,11 @@ public class Citacion implements Serializable {
         this.detalles = detalles;
     }
 
-    public int getNumeroCitacion() {
+    public String getNumeroCitacion() {
         return numeroCitacion;
     }
 
-    public void setNumeroCitacion(int numeroCitacion) {
+    public void setNumeroCitacion(String numeroCitacion) {
         this.numeroCitacion = numeroCitacion;
     }
 
